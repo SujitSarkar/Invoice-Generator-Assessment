@@ -1,0 +1,9 @@
+import 'package:get/get.dart';
+import '../../src/features/charge/view/additional_charges.dart';
+import '../../src/features/customer/view/customer_information.dart';
+import '../../src/features/reservation/view/reservation_details.dart';
+import '../../src/features/summary/view/summary.dart';
+import '../../src/features/vehicle/view/vehicle_information.dart';
+import 'router_paths.dart';
+import 'bindings.dart';
+part 'router_settings.dart';
