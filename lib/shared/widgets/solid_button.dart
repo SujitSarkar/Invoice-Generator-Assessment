@@ -28,8 +28,7 @@ class SolidButton extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 16.w),
               backgroundColor: backgroundColor ?? AppColors.primaryColor,
               elevation: 0.0,
-              minimumSize: Size(width ?? 175.w, height ?? 48.h),
-              maximumSize: Size(width ?? 175.w, height ?? 48.h),
+              fixedSize: Size(width ?? 175.w, height ?? 48.h),
               shape: RoundedRectangleBorder(
                   borderRadius: borderRadius ??
                       const BorderRadius.all(Radius.circular(5))))

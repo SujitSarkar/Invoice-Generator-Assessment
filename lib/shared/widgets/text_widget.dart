@@ -23,7 +23,7 @@ class TitleText extends StatelessWidget {
       textAlign: textAlign,
       style: TextStyle(
           fontWeight: FontWeight.w600,
-          fontSize: textsize ?? 18.sp,
+          fontSize: textsize ?? 20.sp,
           overflow: overflow,
           color: textColor ?? AppColors.textColor),
     );
@@ -49,7 +49,7 @@ class ButtonText extends StatelessWidget {
       textAlign: textAlign,
       style: TextStyle(
           fontWeight: FontWeight.w600,
-          fontSize: textsize ?? 14.sp,
+          fontSize: textsize ?? 16.sp,
           color: textColor ?? AppColors.buttonTextColor),
     );
   }
@@ -80,7 +80,7 @@ class BodyText extends StatelessWidget {
       maxLines: maxLine,
       style: TextStyle(
           fontWeight: FontWeight.w400,
-          fontSize: textsize ?? 16.sp,
+          fontSize: 16.sp,
           color: textColor ?? AppColors.textColor),
     );
   }

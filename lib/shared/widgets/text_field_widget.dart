@@ -71,15 +71,16 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
           TextSpan(
             children: <InlineSpan>[
               WidgetSpan(
-                child: Text(widget.labelText),
+                child: BodyText(text: widget.labelText),
               ),
               WidgetSpan(
-                child: Text(widget.required ? '*' : '',
-                    style: const TextStyle(color: AppColors.errorColor)),
+                child: BodyText(
+                  text: widget.required ? '*' : '',
+                  textColor: AppColors.errorColor,
+                ),
               ),
             ],
           ),
-          style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w700),
         ),
         const SizedBox(height: 8),
         TextFormField(
@@ -116,7 +117,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
           style: TextStyle(
               color: AppColors.textColor,
               fontWeight: FontWeight.w400,
-              fontSize: 14.sp),
+              fontSize: 16.sp),
           decoration: InputDecoration(
               errorText: widget.validationErrorMessage,
               alignLabelWithHint: true,
@@ -137,19 +138,15 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
                 borderSide: BorderSide(width: 1, color: AppColors.errorColor),
               ),
               isDense: true,
-              contentPadding: widget.contentPadding ??
-                  const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+              contentPadding: widget.contentPadding ?? const EdgeInsets.all(12),
               floatingLabelAlignment: FloatingLabelAlignment.start,
               hintText: widget.hintText,
               floatingLabelBehavior: FloatingLabelBehavior.auto,
               hintStyle: TextStyle(
                   color: AppColors.textFieldHintColor,
                   fontWeight: FontWeight.w400,
-                  fontSize: 14.sp),
-              prefixIcon: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                child: widget.prefix,
-              ),
+                  fontSize: 16.sp),
+              prefixIcon: widget.prefix,
               suffixIconConstraints: BoxConstraints.loose(size),
               prefixIconConstraints: BoxConstraints.loose(size),
               suffixIcon: widget.obscure
@@ -172,7 +169,7 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
                         padding: const EdgeInsets.only(right: 12),
                         child: Icon(
                           widget.suffixIcon,
-                          size: 28,
+                          size: 20,
                           color: AppColors.textFieldHintColor,
                         ),
                       ),

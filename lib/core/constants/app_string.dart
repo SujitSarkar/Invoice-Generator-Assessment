@@ -5,6 +5,7 @@ class AppString {
   // Reservation Details
   static const String reservationDetails = 'Reservation Details';
   static const String reservationId = 'Reservation ID';
+  static const String dateAndTime = 'Date and Time';
   static const String pickupDate = 'Pickup Date';
   static const String returnDate = 'Return Date';
   static const String dropoffDate = 'Dropoff Date';
@@ -41,6 +42,7 @@ class AppString {
   static const String netTotal = 'Net Total';
 
   // Common
+  static const String select = 'Select';
   static const String back = 'Back';
   static const String next = 'Next';
   static const String noDataFound = 'No data found!';
