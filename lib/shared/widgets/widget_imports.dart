@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../core/constants/app_string.dart';
 import '/shared/utils/validator_extension.dart';
@@ -17,3 +18,4 @@ part 'text_field_widget.dart';
 part 'list_refresh_ndicator.dart';
 part 'card_widget.dart';
 part 'app_scaffold.dart';
+part 'basic_dropdown.dart';

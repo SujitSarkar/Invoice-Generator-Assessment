@@ -170,7 +170,8 @@ class _TextFormFieldWidgetState extends State<TextFormFieldWidget> {
                         child: Icon(
                           widget.suffixIcon,
                           size: 20,
-                          color: AppColors.textFieldHintColor,
+                          color: widget.suffixColor ??
+                              AppColors.textFieldHintColor,
                         ),
                       ),
                     )),

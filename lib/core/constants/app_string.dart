@@ -30,7 +30,7 @@ class AppString {
   static const String bags = 'bags';
 
   // Additional Charges
-  static const String myAccount = 'Additional Charges';
+  static const String additionalCharge = 'Additional Charges';
 
   // Charges Summery
   static const String chargesSummery = 'Charges Summery';
