@@ -66,13 +66,15 @@ class BodyText extends StatelessWidget {
       this.textColor,
       this.overflow,
       this.maxLine,
-      this.textsize});
+      this.textsize,
+      this.fontWeight});
   final String text;
   final TextAlign textAlign;
   final Color? textColor;
   final double? textsize;
   final TextOverflow? overflow;
   final int? maxLine;
+  final FontWeight? fontWeight;
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +84,7 @@ class BodyText extends StatelessWidget {
       overflow: overflow,
       maxLines: maxLine,
       style: TextStyle(
-          fontWeight: FontWeight.w400,
+          fontWeight: fontWeight ?? FontWeight.w400,
           fontSize: 16.sp,
           color: textColor ?? AppColors.textColor),
     );

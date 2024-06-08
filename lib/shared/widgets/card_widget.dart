@@ -8,13 +8,17 @@ class CardWidget extends StatelessWidget {
       this.height,
       this.width,
       this.borderRadius = 5,
-      this.alignment});
+      this.alignment,
+      this.color,
+      this.borderColor});
   final Widget child;
   final EdgeInsetsGeometry? contentPadding;
   final double? height;
   final double? width;
   final double borderRadius;
   final Alignment? alignment;
+  final Color? color;
+  final Color? borderColor;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +28,9 @@ class CardWidget extends StatelessWidget {
       alignment: alignment,
       padding: contentPadding,
       decoration: BoxDecoration(
-        border: Border.all(color: AppColors.borderColor, width: 1),
+        color: color,
+        border:
+            Border.all(color: borderColor ?? AppColors.borderColor, width: 1),
         borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
       ),
       child: child,

@@ -11,6 +11,7 @@ class BasicDropdown extends StatelessWidget {
   final double? buttonHeight;
   final double? dropdownWidth;
   final bool required;
+  final Color? buttonBorderColor;
 
   BasicDropdown(
       {super.key,
@@ -22,7 +23,8 @@ class BasicDropdown extends StatelessWidget {
       this.width,
       this.buttonHeight = 44,
       this.dropdownWidth,
-      this.required = false});
+      this.required = false,
+      this.buttonBorderColor});
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +78,9 @@ class BasicDropdown extends StatelessWidget {
               width: width ?? double.infinity,
               padding: const EdgeInsets.only(left: 12, right: 12),
               decoration: BoxDecoration(
-                border: Border.all(width: 1, color: AppColors.borderColor),
+                border: Border.all(
+                    width: 1,
+                    color: buttonBorderColor ?? AppColors.borderColor),
                 borderRadius: const BorderRadius.all(Radius.circular(8)),
               ),
               elevation: 0,

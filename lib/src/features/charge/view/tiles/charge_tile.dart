@@ -3,11 +3,11 @@ import 'package:get/get.dart';
 import '../../../../../core/constants/app_color.dart';
 import '../../../../../shared/widgets/text_widget.dart';
 import '../../controller/charge_controller.dart';
-import '../../model/additional_charge_model.dart';
+import '../../model/additional_charge_checkbox_model.dart';
 
 class ChargeTile extends StatelessWidget {
   const ChargeTile({super.key, required this.model, required this.index});
-  final AdditionalChargeModel model;
+  final AdditionalChargeCheckboxModel model;
   final int index;
 
   @override

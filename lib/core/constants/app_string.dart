@@ -2,6 +2,8 @@ class AppString {
   AppString._();
   static const String appName = 'Nyntax Car Rent';
 
+  static const String dateTimeFormatString = 'hh:mm aa, dd MMM yyyy';
+
   // Reservation Details
   static const String reservationDetails = 'Reservation Details';
   static const String reservationId = 'Reservation ID';
@@ -35,8 +37,9 @@ class AppString {
   // Charges Summery
   static const String chargesSummery = 'Charges Summery';
   static const String charge = 'Charge';
-  static const String weakly = 'Weakly';
+  static const String weekly = 'Weekly';
   static const String daily = 'Daily';
+  static const String hourly = 'Hourly';
   static const String collisionDamageWaiver = 'Collision Damage Waiver';
   static const String total = 'Total';
   static const String netTotal = 'Net Total';

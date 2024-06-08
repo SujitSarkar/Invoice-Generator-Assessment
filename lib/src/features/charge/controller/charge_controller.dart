@@ -1,22 +1,22 @@
 import 'package:get/get.dart';
-import '../model/additional_charge_model.dart';
+import '../model/additional_charge_checkbox_model.dart';
 
 class ChargeController extends GetxController {
-  final RxList<AdditionalChargeModel> chargeList =
-      <AdditionalChargeModel>[].obs;
+  final RxList<AdditionalChargeCheckboxModel> chargeList =
+      <AdditionalChargeCheckboxModel>[].obs;
 
   @override
   void onInit() {
-    chargeList.addAll(AdditionalChargeModel.chargeList);
+    chargeList.addAll(AdditionalChargeCheckboxModel.chargeList);
     super.onInit();
   }
 
   void changeChargeCheckboxValue(
     int index,
     bool value,
-    AdditionalChargeModel item,
+    AdditionalChargeCheckboxModel item,
   ) {
-    chargeList[index] = AdditionalChargeModel(
+    chargeList[index] = AdditionalChargeCheckboxModel(
         name: item.name,
         chargeType: item.chargeType,
         checkValue: value,

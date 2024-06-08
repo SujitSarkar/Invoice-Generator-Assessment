@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../core/constants/app_color.dart';
 import '../../../../core/constants/app_string.dart';
-import '../../../../core/router/router_paths.dart';
 import '../../../../shared/widgets/page_title.dart';
 import '../../../../shared/widgets/widget_imports.dart';
 import '../controller/vehicle_controller.dart';
@@ -24,25 +23,35 @@ class VehicleInformation extends StatelessWidget {
                       .paddingOnly(bottom: 25, left: 16, right: 16),
                   CardWidget(
                     contentPadding: const EdgeInsets.all(16),
-                    child: Column(
-                      children: [
-                        BasicDropdown(
-                          items: controller.vehicleTypes,
-                          selectedValue: controller.selectedVehicleType.value,
-                          hintText: AppString.select,
-                          labelText: AppString.vehicleType,
-                          required: true,
-                          onChanged: (value) =>
-                              controller.chanheVehicleType(value),
-                        ).paddingOnly(bottom: 20),
-                        TextFormFieldWidget(
-                          controller: controller.vehicleModel,
-                          labelText: AppString.vehicleModel,
-                          required: true,
-                          suffixIcon: Icons.search,
-                          suffixColor: AppColors.primaryColor,
-                        ).paddingOnly(bottom: 20),
-                      ],
+                    child: Form(
+                      key: controller.formKey,
+                      child: Column(
+                        children: [
+                          Obx(
+                            () => BasicDropdown(
+                              items: controller.vehicleTypes,
+                              selectedValue:
+                                  controller.selectedVehicleType.value,
+                              hintText: AppString.select,
+                              labelText: AppString.vehicleType,
+                              required: true,
+                              buttonBorderColor:
+                                  controller.vehicleTypesIsSelected.value
+                                      ? AppColors.borderColor
+                                      : AppColors.errorColor,
+                              onChanged: (value) =>
+                                  controller.changeVehicleType(value),
+                            ).paddingOnly(bottom: 20),
+                          ),
+                          TextFormFieldWidget(
+                            controller: controller.vehicleModelController,
+                            labelText: AppString.vehicleModel,
+                            required: true,
+                            suffixIcon: Icons.search,
+                            suffixColor: AppColors.primaryColor,
+                          ).paddingOnly(bottom: 20),
+                        ],
+                      ),
                     ),
                   ).paddingOnly(left: 16, right: 16),
                   Expanded(
@@ -63,9 +72,7 @@ class VehicleInformation extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SolidButton(
-              onTap: () {
-                Get.toNamed(RouterPaths.additionalCharge);
-              },
+              onTap: () => controller.nextButtonOnTap(),
               buttonText: AppString.next),
         ],
       ).paddingOnly(bottom: 20),
