@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:nyntax_car_rent/shared/utils/extensions/double_extension.dart';
 import '../../../../core/constants/app_color.dart';
 import '../../../../core/constants/app_string.dart';
 import '../../../../shared/utils/utils.dart';
@@ -111,22 +112,26 @@ class Summary extends StatelessWidget {
                     InformationWidget(
                         title:
                             '${AppString.weekly} (${pluralize(reservationController.week.value, AppString.week.toLowerCase())})',
-                        value: '\$${controller.chargeOfWeek}'),
+                        value:
+                            '\$${controller.chargeOfWeek.value.toTwoDecimalPlaces()}'),
                   if (controller.chargeOfDay.value != 0)
                     InformationWidget(
                         title:
                             '${AppString.daily} (${pluralize(reservationController.day.value, AppString.day.toLowerCase())})',
-                        value: '\$${controller.chargeOfDay}'),
+                        value:
+                            '\$${controller.chargeOfDay.value.toTwoDecimalPlaces()}'),
                   if (controller.chargeOfHour.value != 0)
                     InformationWidget(
                         title:
                             '${AppString.hourly} (${pluralize(reservationController.hour.value, AppString.hour.toLowerCase())})',
-                        value: '\$${controller.chargeOfHour}'),
+                        value:
+                            '\$${controller.chargeOfHour.value.toTwoDecimalPlaces()}'),
                   Column(
                       children: controller.additionalCharges
                           .map(
                             (item) => InformationWidget(
-                                title: item.name, value: '\$${item.amount}'),
+                                title: item.name,
+                                value: '\$${item.amount.toTwoDecimalPlaces()}'),
                           )
                           .toList()),
                   if (reservationController.discount.text.isNotEmpty)
@@ -136,7 +141,8 @@ class Summary extends StatelessWidget {
                     ),
                   InformationWidget(
                     title: AppString.netTotal,
-                    value: '\$${controller.netTotal.value}',
+                    value:
+                        '\$${controller.netTotal.value.toTwoDecimalPlaces()}',
                     isBoald: true,
                   ),
                 ],

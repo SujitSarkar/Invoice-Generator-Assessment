@@ -98,8 +98,14 @@ class SummaryController extends GetxController {
     debugPrint('Minumum Rate: $minimum');
   }
 
-  double calculateMinimumCost(int hours, int days, int weeks, double hourlyRate,
-      double dailyRate, double weeklyRate) {
+  double calculateMinimumCost(
+    int hours,
+    int days,
+    int weeks,
+    double hourlyRate,
+    double dailyRate,
+    double weeklyRate,
+  ) {
     final double hourlyCost =
         math.min((hours.toDouble() * hourlyRate), dailyRate);
     final double dailyCost =
