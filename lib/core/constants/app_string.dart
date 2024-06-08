@@ -1,7 +1,6 @@
 class AppString {
   AppString._();
   static const String appName = 'Nyntax Car Rent';
-
   static const String dateTimeFormatString = 'hh:mm aa, dd MMM yyyy';
 
   // Reservation Details

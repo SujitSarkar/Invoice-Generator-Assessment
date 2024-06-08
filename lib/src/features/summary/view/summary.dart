@@ -110,17 +110,17 @@ class Summary extends StatelessWidget {
                   if (controller.chargeOfWeek.value != 0)
                     InformationWidget(
                         title:
-                            '${AppString.weekly} (${pluralize(reservationController.week.value, 'week')})',
+                            '${AppString.weekly} (${pluralize(reservationController.week.value, AppString.week.toLowerCase())})',
                         value: '\$${controller.chargeOfWeek}'),
                   if (controller.chargeOfDay.value != 0)
                     InformationWidget(
                         title:
-                            '${AppString.daily} (${pluralize(reservationController.day.value, 'day')})',
+                            '${AppString.daily} (${pluralize(reservationController.day.value, AppString.day.toLowerCase())})',
                         value: '\$${controller.chargeOfDay}'),
                   if (controller.chargeOfHour.value != 0)
                     InformationWidget(
                         title:
-                            '${AppString.hourly} (${pluralize(reservationController.hour.value, 'hour')})',
+                            '${AppString.hourly} (${pluralize(reservationController.hour.value, AppString.hour.toLowerCase())})',
                         value: '\$${controller.chargeOfHour}'),
                   Column(
                       children: controller.additionalCharges
@@ -129,6 +129,11 @@ class Summary extends StatelessWidget {
                                 title: item.name, value: '\$${item.amount}'),
                           )
                           .toList()),
+                  if (reservationController.discount.text.isNotEmpty)
+                    InformationWidget(
+                      title: AppString.discount,
+                      value: '\$${reservationController.discount.text}',
+                    ),
                   InformationWidget(
                     title: AppString.netTotal,
                     value: '\$${controller.netTotal.value}',

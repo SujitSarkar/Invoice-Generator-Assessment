@@ -63,7 +63,7 @@ class ReservationDetails extends StatelessWidget {
                                 child: Obx(
                                   () => BodyText(
                                     text:
-                                        '${pluralize(controller.week.value, 'week')}, ${pluralize(controller.day.value, 'day')}, ${pluralize(controller.hour.value, 'hour')}',
+                                        '${pluralize(controller.week.value, AppString.week.toLowerCase())}, ${pluralize(controller.day.value, AppString.day.toLowerCase())}, ${pluralize(controller.hour.value, AppString.hour.toLowerCase())}',
                                     textColor: AppColors.textFieldHintColor,
                                     textAlign: TextAlign.center,
                                   ),

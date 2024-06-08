@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../../core/constants/app_assets.dart';
 import '../../../../../core/constants/app_color.dart';
+import '../../../../../core/constants/app_string.dart';
 import '../../../../../shared/widgets/text_widget.dart';
 import '../../../../../shared/widgets/widget_imports.dart';
 import '../../controller/vehicle_controller.dart';
@@ -52,7 +53,7 @@ class VehicleTile extends StatelessWidget {
                         children: [
                           SvgPicture.asset(Assets.assetsUser),
                           SmallBodyText(
-                            text: '${model.seats ?? '0'} seat',
+                            text: '${model.seats ?? '0'} ${AppString.seat}',
                             textColor: AppColors.secondaryTextColor,
                           ).paddingOnly(left: 8)
                         ],
@@ -62,7 +63,7 @@ class VehicleTile extends StatelessWidget {
                         children: [
                           SvgPicture.asset(Assets.assetsBag),
                           SmallBodyText(
-                            text: '${model.bags ?? '0'} bag',
+                            text: '${model.bags ?? '0'} ${AppString.bags}',
                             textColor: AppColors.secondaryTextColor,
                           ).paddingOnly(left: 8)
                         ],
@@ -76,15 +77,15 @@ class VehicleTile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SmallBodyText(
-                    text: '\$${model.rates?.hourly} / Hour',
+                    text: '\$${model.rates?.hourly} / ${AppString.hour}',
                     textColor: AppColors.secondaryTextColor,
                   ),
                   SmallBodyText(
-                    text: '\$${model.rates?.daily} / Day',
+                    text: '\$${model.rates?.daily} / ${AppString.day}',
                     textColor: AppColors.secondaryTextColor,
                   ),
                   SmallBodyText(
-                    text: '\$${model.rates?.weekly} / Week',
+                    text: '\$${model.rates?.weekly} / ${AppString.week}',
                     textColor: AppColors.secondaryTextColor,
                   ),
                 ],

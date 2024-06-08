@@ -1,11 +1,11 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import '../../charge/controller/charge_controller.dart';
 import '../../charge/model/additional_charge_checkbox_model.dart';
 import '../../reservation/controller/reservation_controller.dart';
 import '../../vehicle/controller/vehicle_controller.dart';
 import '../model/additional_charge.dart';
+import 'dart:math' as math;
 
 class SummaryController extends GetxController {
   final ReservationController reservationController = Get.find();
@@ -51,7 +51,6 @@ class SummaryController extends GetxController {
 
   void calculateVehicleTotal() {
     vehicleTotal = chargeOfWeek.value + chargeOfDay.value + chargeOfHour.value;
-    debugPrint('VehicleTotal: $vehicleTotal');
   }
 
   void calculateAdditionalCharge() {
@@ -65,7 +64,6 @@ class SummaryController extends GetxController {
               amount: vehicleTotal * (element.amount / 100),
             ),
           );
-          debugPrint('Percent: ${vehicleTotal * (element.amount / 100)}');
         } else {
           additionalCharges.add(
             AdditionalCharge(
@@ -73,7 +71,6 @@ class SummaryController extends GetxController {
               amount: element.amount,
             ),
           );
-          debugPrint('Amount: ${element.amount}');
         }
       }
     }
@@ -84,7 +81,30 @@ class SummaryController extends GetxController {
     for (var element in additionalCharges) {
       additionalTotal = additionalTotal + element.amount;
     }
-    netTotal.value = vehicleTotal + additionalTotal;
-    debugPrint('Net Total: ${netTotal.value}');
+    final discount = double.parse(reservationController.discount.text.isNotEmpty
+        ? reservationController.discount.text
+        : '0.0');
+
+    netTotal.value = vehicleTotal + additionalTotal - discount;
+
+    final double minimum = calculateMinimumCost(
+      reservationController.hour.value,
+      reservationController.day.value,
+      reservationController.week.value,
+      vehicleController.selectedVehicle.value!.rates!.hourly!.toDouble(),
+      vehicleController.selectedVehicle.value!.rates!.daily!.toDouble(),
+      vehicleController.selectedVehicle.value!.rates!.weekly!.toDouble(),
+    );
+    debugPrint('Minumum Rate: $minimum');
+  }
+
+  double calculateMinimumCost(int hours, int days, int weeks, double hourlyRate,
+      double dailyRate, double weeklyRate) {
+    final double hourlyCost =
+        math.min((hours.toDouble() * hourlyRate), dailyRate);
+    final double dailyCost =
+        math.min((days.toDouble() * dailyRate), weeklyRate);
+    final double weeklyCost = weeks * weeklyRate;
+    return hourlyCost + dailyCost + weeklyCost;
   }
 }

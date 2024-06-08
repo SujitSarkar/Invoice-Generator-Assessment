@@ -40,7 +40,6 @@ class VehicleController extends GetxController {
 
   void filterCarByModel() {
     if (selectedVehicleType.value != null) {
-      debugPrint('selectedVehicle.value != null');
       filteredVehicleList.value = vehicleList
           .where((item) =>
               item.type! == selectedVehicleType.value! &&
@@ -49,7 +48,6 @@ class VehicleController extends GetxController {
                   .contains(vehicleModelController.text.toLowerCase()))
           .toList();
     } else {
-      debugPrint('selectedVehicle.value == null');
       filteredVehicleList.value = vehicleList
           .where((item) => item.model!
               .toLowerCase()
@@ -76,7 +74,6 @@ class VehicleController extends GetxController {
             vehicleModelFromJson(jsonEncode(result.data['data']));
         filteredVehicleList.addAll(vehicleList);
         filterVehicleModelsAndTypes();
-        debugPrint('Total Vahicles: ${vehicleList.length}');
       }
     } catch (error) {
       showToast(error.toString());
@@ -119,6 +116,7 @@ class VehicleController extends GetxController {
     } else {
       selectedVehicle(model);
       vehicleModelController.text = selectedVehicle.value!.model!;
+      selectedVehicleType.value = selectedVehicle.value?.type;
     }
   }
 
