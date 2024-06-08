@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:nyntax_car_rent/shared/utils/extensions/double_extension.dart';
+import '../../../../shared/utils/extensions/double_extension.dart';
 import '../../../../core/constants/app_color.dart';
 import '../../../../core/constants/app_string.dart';
 import '../../../../shared/utils/utils.dart';
